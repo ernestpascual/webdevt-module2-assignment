@@ -1,0 +1,64 @@
+
+/* Font smoothener */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+  }
+
+
+.yardie-receipt{
+    margin-bottom: -6px;
+    text-align: center;
+}
+
+.yardie-header-adj{
+    margin-left: 16px;
+    margin-bottom: -30px;
+
+}
+
+.yardie-table-adj{
+    margin-top: -70px;
+    margin-left:-30px;
+    margin-right: 50px;
+
+}
+
+.yardie-align{
+    text-align: center;
+}
+
+.yardie-bg-color{
+    background-color: #dfe6e9;
+}
+
+.yardie-reciept-paper{
+    width: 450px;
+    height: 530px;
+    box-shadow: 1px 1px 10px black;
+    background-color: white;
+}
+
+.yardie-adjust{
+    margin-bottom: 70px;
+}
+
+.yardie-date{
+    font-size: small;
+    margin-top:5px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.yardie-headspace{
+    padding-bottom: 50px;
+}
+
+
+th, td {
+    padding-left:50px;
+    padding-bottom: 5px;
+    text-align: left;
+}
