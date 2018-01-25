@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
 <head>
 <title>Yardie Restaurant </title>
@@ -45,44 +51,49 @@
 
     //calculation
     $thamburger = $hamburger * 2;
-    $totalcost  = ($hamburger * 2) + $chocomilkshake + $cola;
-    $tax = $totalcost * $evat;
-    $total = $tax + $totalcost 
+	$vhamburger = $thamburger * $evat;
+	$vchoco = $chocomilkshake * $evat;
+	$phamburger = $thamburger - $vhamburger;
+	$pchoco = $chocomilkshake - $vchoco;
+	$vcola = $cola * $evat;
+	$pcola = $cola - $vcola;
+        $totalcost  = ($hamburger * 2) + $chocomilkshake + $cola;
+	$evatt = $vhamburger + $vchoco + $vcola;
+	$btax = $phamburger + $pchoco + $pcola;
+        $total = $evatt + $btax;
     ?>
     <div class="row">
         <div class="col-md-12">
-            <table class="yardie-table-adj">
+            <table class="yardie-table-adj table table-border no-border">
             <thead>
             <tr>
             <th>Item</th>
+			<th>Price</th>
             <th>Quantity</th>
-            <th>Price  </th>
+			<th>EVAT</th>
+            <th>Pre-tax</th>
+			<th>Total</th>
             </tr>
             </thead>
             <tbody>
             <?php
-                echo "<tr>";
-                echo "<td> Hamburger @ Php 100.00 </td>";
-                echo "<td>2</td>";
-                echo "<td>Php " . $thamburger . ".00</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>Choco Milkshake @ Php 75.00</td>";
-                echo "<td>1</td>";
-                echo "<td>Php " . $chocomilkshake. ".00</td>";
-                echo "</tr>";
-                echo "<td>Cola @ Php 50.00</td>";
-                echo "<td>1</td>";
-                echo "<td>Php " . $cola . ".00</td>";
-                echo "</tr>";
-                echo "<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr>";
-                echo "<td><b>Before Tax:</b></td><td></td>";
-                echo "<td>Php " . $totalcost . ".00</td></tr>";
-                echo "<tr><td><b>12% EVAT:</b></td><td></td>";
-                echo "<td>Php " . $tax . ".00</td></tr>";
-                echo "<tr><td><b>Total Cost:</b></td><td></td>";
-                echo "<td>Php " . $total . ".00</td></tr>";
-                echo "<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>";
+
+                echo "<tr><td> Hamburger</td><td>Php 100.00</td><td>2</td><td>Php ". number_format((float)$vhamburger,2,'.','') ."</td><td>Php ". number_format((float)$phamburger,2,'.','')
+					 ."</td><td>Php ". number_format((float)$thamburger,2,'.','')."</td></tr>";     
+		echo "<tr><td> Chocolate Milkshake</td><td>Php 75.00</td><td>1</td><td>Php ". number_format((float)$vchoco,2,'.','') ."</td><td>Php ". number_format((float)$pchoco,2,'.','')
+					 ."</td><td>Php ". number_format((float)$chocomilkshake,2,'.','')."</td></tr>";
+                echo "<tr><td> Chocolate Milkshake</td><td>Php 75.00</td><td>1</td><td>Php ". number_format((float)$vcola,2,'.','') ."</td><td>Php ". number_format((float)$pcola,2,'.','')
+					 ."</td><td>Php ". number_format((float)$cola,2,'.','')."</td></tr>";   
+                echo "<tr><td></td></tr>";    
+                echo "<tr><td> </td><td> </td><td ></td><td> </td><td><b>Pre Tax:</b></td>";
+                echo "<td>Php " . number_format((float)$btax,2,'.','') . "</td></tr>";               
+                echo "<tr><td> </td><td> </td><td> </td><td> </td><td><b>EVAT:</b></td>";
+                echo "<td>Php " .number_format((float)$evatt,2,'.',''). "</td></tr>";                
+                echo "<tr><td></td><td></td><td></td><td></td><td><b>Grand Total:</b></td>";
+                echo "<td>Php " .number_format((float)$total,2,'.','') . "</td></tr>";
+                
+         
+                
                 
             ?>
             </tbody>
@@ -96,9 +107,3 @@
 </html>
 
 
-<!-- TO DO 
-* put all calculations in the first declaration  DONE
-* call our variables in table using php echoing table formatting DONE
-* align the table to center DONE
-* adjust receipt paper, put shadow
--->
